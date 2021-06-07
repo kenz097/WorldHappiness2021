@@ -1,0 +1,10 @@
+
+.myDiv {
+  border: 3px outset #312450;
+  text-align: left;
+  padding: 5px;
+}
+
+.query_button {
+  margin-top: 8px;
+}
