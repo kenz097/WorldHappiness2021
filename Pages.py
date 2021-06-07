@@ -7,10 +7,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    lista = Query.country()
+    lista = Query.findLadderScore(5, 10)
     happy = []
+    j = 0
     for i in lista:
         happy.append(Happiness.Happiness(i))
+        print(happy[j].ladder_score)
+        j += 1
     resp = make_response(render_template('Homepage.html', list_country=happy))
     return resp
 

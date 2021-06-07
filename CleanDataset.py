@@ -2,6 +2,7 @@ import pandas as pd
 import csv
 
 
+# delete all tuples having at least one null attribute and create a new csv file containing the tuples
 def delete_null_item():
     happiness = pd.read_csv("world_happiness_report_2021.csv")
     happiness.dropna(axis='index', how='any', inplace=True)

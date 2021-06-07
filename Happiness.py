@@ -1,3 +1,4 @@
+#class Happiness for our database
 class Happiness:
     def __init__(self, happiness):
         self.id_dataset = happiness["_id"]
@@ -38,3 +39,21 @@ class Happiness:
                 "Explained_by_Generosity": self.exp_generosity,
                 "Explained_by_Perceptions_of_corruption": self.exp_percetion_corruption,
                 "Dystopia_plus_residual": self.dystopia_plus_residual}
+
+
+# check if all attribute aren't Null
+def checkFormato(test):
+    if test[0].country_name is not None and test[0].regional_indicator is not None and test[0].ladder_score is not None \
+            and test[0].standard_error is not None and test[0].upperwhisker is not None and test[
+        0].lowerwhisker is not None \
+            and test[0].logged_gdp is not None and test[0].social_suppport is not None and test[
+        0].healty_life_ex is not None \
+            and test[0].freedom_choices is not None and test[0].generosity is not None and test[
+        0].percetions_corruption is not None \
+            and test[0].ladder_dystopia is not None and test[0].exp_log_gdp is not None and test[
+        0].exp_social_support is not None \
+            and test[0].exp_freedom_choices is not None and test[0].exp_generosity is not None and test[
+        0].exp_percetion_corruption is not None \
+            and test[0].dystopia_plus_residual is not None:
+        return True
+    return False
