@@ -26,63 +26,117 @@
 			<div class="col-12">
 				<textarea name="demo-message" id="demo-message1" placeholder="Visualizzazione Dataset" rows="8"></textarea>
 			</div>
-			<h1 class="h_query">1a Query</h1>
-			<button class="query_button" onclick="">Cliccami</button>
-			<p id="result_query1">Risultato query</p>
 		</div>
 
 		<div class="myDiv">
-			<h1 class="h_query">2a Query</h1>
-			<div class="row">
-				<div class="col-6 col-12-medium">
-					<ul class="actions">
-						<li><a href="#" class="button primary">Default</a></li>
-						<li><a href="#" class="button">Default</a></li>
-					</ul>
-				</div>
-			</div>
-		<p id="result_query2">Risultato query</p>
-		</div>
-
-		<div class="myDiv">
-			<h1 class="h_query">3a Query</h1>
+			<h1 class="h_query">Ricerca WorldHappiness2021</h1>
 			<form method="post" action="#">
 										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall">
+											<div class="col-8 col-12-xsmall">
 												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Paese" />
 											</div>
-											<div class="col-6 col-12-xsmall">
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="Area" />
+
+											<div class="col-2 col-12-xsmall">
+											Punteggio felicità:
 											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="min_happy" value="" placeholder="min"/>
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="max_happy" value="" placeholder="max"/>
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											PIL pro capite:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="pil" id="min_pil" value="" placeholder="min"/>
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="pil" id="max_pil" value="" placeholder="max"/>
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Healthy life:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="pil" id="min_life" value="" placeholder="min"/>
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="pil" id="max_life" value="" placeholder="max"/>
+											</div>
+
 											<div class="col-12">
 												<select name="demo-category" id="demo-category">
-													<option value="">- Categoria -</option>
-													<option value="1">Abitanti</option>
-													<option value="1">Felicità</option>
-													<option value="1">Ricchezza</option>
-													<option value="1">Human Resources</option>
+													<option value="">- Continente -</option>
+													<option value="1">Africa</option>
+													<option value="1">America</option>
+													<option value="1">Asia</option>
+													<option value="1">Europa</option>
+													<option value="1">Oceania</option>
 												</select>
 											</div>
+
 											<div class="col-4 col-12-small">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Prova1</label>
-											</div>
-											<div class="col-4 col-12-small">
-												<input type="radio" id="demo-priority-normal" name="demo-priority">
-												<label for="demo-priority-normal">Prova2</label>
+												Visualizzazione punteggio <strong>Felicità</strong>:
+												<input type="radio" id="demo-priority-cre" name="demo-priority" checked>
+												<label for="demo-priority-cre">Crescente</label>
 											</div>
 											<div class="col-4 col-12-small">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">Prova3</label>
+												<input type="radio" id="demo-priority-dec" name="demo-priority">
+												<label for="demo-priority-dec">Decrescente</label>
 											</div>
-											<div class="col-6 col-12-small">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Opzione1</label>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Invia" class="primary" /></li>
+													<li><input type="reset" value="Annulla" /></li>
+												</ul>
 											</div>
-											<div class="col-6 col-12-small">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Opzione2</label>
+										</div>
+									</form>
+			<p id="result_inserimento">Risultato query</p>
+		</div>
+
+		<div class="myDiv">
+			<h1 class="h_query">Inserimento nuova nazione</h1>
+			<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-8 col-12-xsmall">
+												<input type="text" name="demo-name" id="new_name" value="" placeholder="Paese" />
 											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Punteggio felicità:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="new_happiness_score" value="" placeholder="Score"/>
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											PIL pro capite:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="pil" id="new_pil" value="" placeholder="PIL"/>
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Healthy life:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="life" id="new_life" value="" placeholder="Score life"/>
+											</div>
+
+											<div class="col-12">
+												<select name="demo-category" id="new-category">
+													<option value="">- Continente -</option>
+													<option value="1">Africa</option>
+													<option value="1">America</option>
+													<option value="1">Asia</option>
+													<option value="1">Europa</option>
+													<option value="1">Oceania</option>
+												</select>
+											</div>
+
 											<div class="col-12">
 												<ul class="actions">
 													<li><input type="submit" value="Invia" class="primary" /></li>
@@ -96,38 +150,15 @@
 
 
 		<div class="myDiv">
-			<h1 class="h_query">Query numero 4</h1>
+			<h1 class="h_query">Cancellazione nazione</h1>
 			<form method="post" action="#">
 											<div class="col-6 col-12-xsmall">
-												<input type="text" name="demo-name" id="name" value="" placeholder="Nome Paese/Continente" />
+												<input type="text" name="demo-name" id="name" value="" placeholder="Nome Paese" />
 											</div>
-			<button class="query_button" onclick="">Cerca</button>
-			<p id="result_query4">Risultato query</p>
+			<button class="query_button" onclick="">Elimina</button>
+			</form>
+			<p id="result_query4">Eliminazione effettuata con successo</p>
 		</div>
-
-
-		<div class="myDiv">
-			<h1 class="h_query">5a Query</h1>
-			<button class="query_button" onclick="">Cliccami</button>
-			<p id="result_query5">Risultato query</p>
-		</div>
-
-
-		<div class="myDiv">
-			<h1 class="h_query">6a Query</h1>
-			<button class="query_button" onclick="">Cliccami</button>
-			<p id="result_query6">Risultato query</p>
-		</div>
-
-		<div class="myDiv">
-			<h1 class="h_query">questa prima non c'era</h1>
-			<button class="query_button" onclick="">Cliccami</button>
-			<p id="result_query7">Risultato query</p>
-		</div>
-
-
-
-
 
 		<!-- Footer -->
 			<footer id="footer" class="wrapper alt">
