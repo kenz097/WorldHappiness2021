@@ -70,7 +70,7 @@ def findCountry(name):
 # find countries by Regional indicator
 def findRegionalIndicator(name):
     col = Cp.connection_pool()
-    query = col.find_one({"Regional_indicatorRegional_indicator": name})
+    query = col.find({"Regional_indicator": name})
     return query
 
 
