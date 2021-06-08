@@ -63,7 +63,7 @@ def deleteCountry(name):
 # find countries by name
 def findCountry(name):
     col = Cp.connection_pool()
-    query = col.find_one({"Country_name": name})
+    query = col.find({"Country_name": name})
     return query
 
 
@@ -113,4 +113,13 @@ def ladderAscending():
 def ladderDescending():
     col = Cp.connection_pool()
     query = col.find().sort("Ladder_score", -1)
+    return query
+
+
+def fiveParameter(country, region, ladder, gdp, life):
+    col = Cp.connection_pool()
+
+    query = col.find({"$and": [
+        {"Country_name": country, "Regional_indicator": region, "Ladder_score": ladder,
+         "Logged_GDP_per_capita": gdp, "Healthy_life_expectancy": life}]})
     return query
