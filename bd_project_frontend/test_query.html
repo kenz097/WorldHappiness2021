@@ -57,7 +57,7 @@
 											</div>
 
 											<div class="col-2 col-12-xsmall">
-											Healthy life:
+											Aspettativa di vita:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="pil" id="min_life" value="" placeholder="min"/>
@@ -78,13 +78,17 @@
 											</div>
 
 											<div class="col-4 col-12-small">
-												Visualizzazione punteggio <strong>Felicità</strong>:
+												 <strong>Ordina per:</strong>
 												<input type="radio" id="demo-priority-cre" name="demo-priority" checked>
-												<label for="demo-priority-cre">Crescente</label>
+												<label for="demo-priority-cre">Punteggio felicità crescente</label>
 											</div>
 											<div class="col-4 col-12-small">
 												<input type="radio" id="demo-priority-dec" name="demo-priority">
-												<label for="demo-priority-dec">Decrescente</label>
+												<label for="demo-priority-dec">Punteggio felicità decrescente</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-alf" name="demo-priority">
+												<label for="demo-priority-alf">Nazioni in ordine alfabetico</label>
 											</div>
 											<div class="col-12">
 												<ul class="actions">
@@ -105,27 +109,6 @@
 												<input type="text" name="demo-name" id="new_name" value="" placeholder="Paese" />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
-											Punteggio felicità:
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="new_happiness_score" value="" placeholder="Score"/>
-											</div>
-
-											<div class="col-2 col-12-xsmall">
-											PIL pro capite:
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" class="pil" id="new_pil" value="" placeholder="PIL"/>
-											</div>
-
-											<div class="col-2 col-12-xsmall">
-											Healthy life:
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" class="life" id="new_life" value="" placeholder="Score life"/>
-											</div>
-
 											<div class="col-12">
 												<select name="demo-category" id="new-category">
 													<option value="">- Continente -</option>
@@ -136,6 +119,48 @@
 													<option value="1">Oceania</option>
 												</select>
 											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Punteggio felicità:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="new_happiness_score" value="" placeholder="Score"/>
+												<input type="text" class="happy" id="new_happiness_dev_standard" value="" placeholder="deviazione standard"/>
+												<input type="text" class="happy" id="new_happiness_upper" value="" placeholder="upperwhisker"/>
+												<input type="text" class="happy" id="new_happiness_lower" value="" placeholder="lowerwhisker"/>
+											</div>
+
+
+											<div class="col-2 col-12-xsmall">
+											PIL pro capite:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="pil" id="new_pil" value="" placeholder="PIL"/>
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Supporto sociale:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="social_sup" id="new_social_sup" value="" placeholder="Supporto sociale"/>
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Aspettativa di vita:
+											</div>
+
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="life" id="new_life" value="" placeholder="Score life"/>
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Libertà percepita:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" id="new_freedom" value="" placeholder="Libertà"/>
+											</div>
+
+
 
 											<div class="col-12">
 												<ul class="actions">
