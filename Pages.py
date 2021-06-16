@@ -2,21 +2,22 @@ from flask import Flask, redirect, url_for, render_template, make_response, requ
 import QueryList as Query
 import Happiness
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="bd_project_frontend", static_folder="bd_project_frontend/assets")
 
 
-@app.route("/")
+@app.route("/homepage")
 def main():
-    lista = Query.fiveParameter("Italy", {"$ne": None}, {"$ne": None}, {"$ne": None}, {"$ne": None})
-    happy = []
-    j = 0
+    return render_template("index.html")
 
+
+@app.route("/test_query")
+def test_query():
+    lista = Query.countryAlphabetica()
+    happy = []
     for i in lista:
-        happy.append(Happiness.Happiness(i))
-        print(happy[j].country_name)
-        j += 1
-    resp = make_response(render_template('Homepage.html', list_country=happy))
-    return resp
+        happy.append((Happiness.Happiness(i)))
+
+    return render_template("test_query.html", list_country=happy)
 
 
 if __name__ == "__main__":
