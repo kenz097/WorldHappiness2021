@@ -122,10 +122,16 @@ def delete_query():
         if name == "":
             return render_template("test_query.html", risposta="nessun paese inserito")
         else:
-            elim = Query.deleteCountry(name)
-            if elim:
+            result = Query.findCountry(name)
+            value = None
+            for i in result:
+                value = result
+            if value is not None:
+                Query.deleteCountry(name)
+                print("eliminata")
                 return render_template("test_query.html", risposta="Eliminazione effettuata")
             else:
+                print("non eliminata")
                 return render_template("test_query.html", risposta="Eliminazione non effettuata")
 
 

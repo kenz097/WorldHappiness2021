@@ -57,14 +57,8 @@ def updateCountry(name, country2):
 # delete country by name
 def deleteCountry(name):
     col = Cp.connection_pool()
-    result = col.find({"Country_name": name})
-    value = None
-    for i in result:
-        value = result
-    if value is not None:
-        col.delete_one({"Country_name": name})
-        return True
-    return False
+    col.delete_one({"Country_name": name})
+
 
 
 # find countries by name
