@@ -128,10 +128,8 @@ def delete_query():
                 value = result
             if value is not None:
                 Query.deleteCountry(name)
-                print("eliminata")
                 return render_template("test_query.html", risposta="Eliminazione effettuata")
             else:
-                print("non eliminata")
                 return render_template("test_query.html", risposta="Eliminazione non effettuata")
 
 
