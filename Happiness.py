@@ -1,4 +1,4 @@
-#class Happiness for our database
+# class Happiness for our database
 class Happiness:
     def __init__(self, happiness):
         self.id_dataset = happiness["_id"]
@@ -15,13 +15,6 @@ class Happiness:
         self.generosity = happiness["Generosity"]
         self.percetions_corruption = happiness["Perceptions_of_corruption"]
         self.ladder_dystopia = happiness["Ladder_score_in_Dystopia"]
-        self.exp_log_gdp = happiness["Explained_by_Log_GDP_per_capita"]
-        self.exp_social_support = happiness["Explained_by_Social_support"]
-        self.exp_healthy_life = happiness["Explained_by_Healthy_life_expectancy"]
-        self.exp_freedom_choices = happiness["Explained_by_Freedom_to_make_life_choices"]
-        self.exp_generosity = happiness["Explained_by_Generosity"]
-        self.exp_percetion_corruption = happiness["Explained_by_Perceptions_of_corruption"]
-        self.dystopia_plus_residual = happiness["Dystopia_plus_residual"]
 
     def dump(self):
         return {"Country_name": self.country_name,
@@ -32,28 +25,15 @@ class Happiness:
                 "Social_support": self.social_suppport,
                 "Healthy_life_expectancy": self.healty_life_ex, "Freedom_to_make_life_choices": self.freedom_choices,
                 "Generosity": self.generosity, "Perceptions_of_corruption": self.percetions_corruption,
-                "Ladder_score_in_Dystopia": self.ladder_dystopia, "Explained_by_Log_GDP_per_capita": self.exp_log_gdp,
-                "Explained_by_Social_support": self.exp_social_support,
-                "Explained_by_Healthy_life_expectancy": self.exp_healthy_life,
-                "Explained_by_Freedom_to_make_life_choices": self.exp_freedom_choices,
-                "Explained_by_Generosity": self.exp_generosity,
-                "Explained_by_Perceptions_of_corruption": self.exp_percetion_corruption,
-                "Dystopia_plus_residual": self.dystopia_plus_residual}
+                "Ladder_score_in_Dystopia": self.ladder_dystopia}
 
 
 # check if all attribute aren't Null
 def checkFormato(test):
-    if test[0].country_name is not None and test[0].regional_indicator is not None and test[0].ladder_score is not None \
-            and test[0].standard_error is not None and test[0].upperwhisker is not None and test[
-        0].lowerwhisker is not None \
-            and test[0].logged_gdp is not None and test[0].social_suppport is not None and test[
-        0].healty_life_ex is not None \
-            and test[0].freedom_choices is not None and test[0].generosity is not None and test[
-        0].percetions_corruption is not None \
-            and test[0].ladder_dystopia is not None and test[0].exp_log_gdp is not None and test[
-        0].exp_social_support is not None \
-            and test[0].exp_freedom_choices is not None and test[0].exp_generosity is not None and test[
-        0].exp_percetion_corruption is not None \
-            and test[0].dystopia_plus_residual is not None:
+    if test[0].country_name == "" and test[0].regional_indicator == "" and test[0].ladder_score == "" \
+            and test[0].standard_error == "" and test[0].upperwhisker == "" and test[0].lowerwhisker == "" \
+            and test[0].logged_gdp == "" and test[0].social_suppport == "" and test[0].healty_life_ex == "" \
+            and test[0].freedom_choices == "" and test[0].generosity == "" and test[0].percetions_corruption == "" \
+            and test[0].ladder_dystopia:
         return True
     return False

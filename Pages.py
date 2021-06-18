@@ -93,8 +93,6 @@ def find_query():
     return render_template("test_query.html", country_name="problema a caso")
 
 
-'''
-QUERY DA COMPLETARE
 @app.route("/test_query/insert_country", methods=['POST', 'GET'])
 def insert_country():
     name = request.form['demo-name']
@@ -104,12 +102,71 @@ def insert_country():
     upper = request.form['demo-upper']
     lower = request.form['demo-lower']
     pil = request.form['demo-pil']
-    social= request.form['demo-social']
-    life= request.form['demo-life']
-    freedom=request.form['demo-freedom']
+    social = request.form['demo-social']
+    life = request.form['demo-life']
+    freedom = request.form['demo-freedom']
+    # mancano dei valori
+    happy = Happiness.Happiness(name, region, score, dev, upper, lower, pil, social, life, freedom)  # mancano i valori
+    if Happiness.checkFormato(happy):
+        return render_template("test_query.html", country_name="oggetto inserito correttamente")
+    else:
+        return render_template("test_query.html", country_name="valori mancanti")
 
-    return render_template("test_query.html", country_name="nessun valore inserito")
-'''
+
+@app.route("/test_query/update_country", methods=['POST', 'GET'])
+def update_country():
+    name = request.form['demo-name']
+    new_name = request.form['demo-new-name']
+    region = request.form['demo-category']
+    score = request.form['demo-score']
+    dev = request.form['demo-dev']
+    upper = request.form['demo-upper']
+    lower = request.form['demo-lower']
+    pil = request.form['demo-pil']
+    social = request.form['demo-social']
+    life = request.form['demo-life']
+    freedom = request.form['demo-freedom']
+    # mancano dei valori da inserire
+    if name == "":
+        return render_template("test_query.html", risposta="nessun paese inserito")
+    else:
+        result = Query.findCountry(name)
+        value = None
+        new = Happiness.Happiness(new_name, region, score, dev, upper, lower, pil, social, life,
+                                  freedom)  # mancano valori
+        for i in result:
+            value = result
+        if value is not None:
+            if new.country_name == "":
+                new.country_name = value.country_name
+            if new.regional_indicator == "":
+                new.regional_indicator = value.regional_indicator
+            if new.ladder_score == "":
+                new.ladder_score = value.ladder_score
+            if new.standard_error == "":
+                new.standard_error = value.ladder_score
+            if new.upperwhisker == "":
+                new.upperwhisker = value.upperwhisker
+            if new.lowerwhisker == "":
+                new.lowerwhisker = value.lowerwhisker
+            if new.logged_gdp == "":
+                new.logged_gdp = value.logged_gdp
+            if new.social_suppport == "":
+                new.logged_gdp = value.logged_gdp
+            if new.healty_life_ex == "":
+                new.healty_life_ex = value.healty_life_ex
+            if new.freedom_choices == "":
+                new.freedom_choices = value.freedom_choices
+            if new.generosity == "":
+                new.generosity = value.generosity
+            if new.percetions_corruption == "":
+                new.percetions_corruption = value.percetions_corruption
+            if new.ladder_dystopia == "":
+                new.ladder_dystopia = value.ladder_dystopia
+            Query.updateCountry()
+            return render_template("test_query.html", risposta="Aggiornamento effettuato")
+        else:
+            return render_template("test_query.html", risposta="Aggiornamento non effettuato")
 
 
 @app.route("/test_query/delete_query", methods=['POST', 'GET'])

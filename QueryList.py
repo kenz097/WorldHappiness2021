@@ -17,14 +17,7 @@ def insertCountry(country):
                     "Freedom_to_make_life_choices": country[0].freedom_choices,
                     "Generosity": country[0].generosity,
                     "Perceptions_of_corruption": country[0].percetions_corruption,
-                    "Ladder_score_in_Dystopia": country[0].ladder_dystopia,
-                    "Explained_by_Log_GDP_per_capita": country[0].exp_log_gdp,
-                    "Explained_by_Social_support": country[0].exp_social_support,
-                    "Explained_by_Healthy_life_expectancy": country[0].exp_healthy_life,
-                    "Explained_by_Freedom_to_make_life_choices": country[0].exp_freedom_choices,
-                    "Explained_by_Generosity": country[0].exp_generosity,
-                    "Explained_by_Perceptions_of_corruption": country[0].exp_percetion_corruption,
-                    "Dystopia_plus_residual": country[0].dystopia_plus_residual})
+                    "Ladder_score_in_Dystopia": country[0].ladder_dystopia})
     return True
 
 
@@ -43,14 +36,7 @@ def updateCountry(name, country2):
                  "Freedom_to_make_life_choices": country2[0].freedom_choices,
                  "Generosity": country2[0].generosity,
                  "Perceptions_of_corruption": country2[0].percetions_corruption,
-                 "Ladder_score_in_Dystopia": country2[0].ladder_dystopia,
-                 "Explained_by_Log_GDP_per_capita": country2[0].exp_log_gdp,
-                 "Explained_by_Social_support": country2[0].exp_social_support,
-                 "Explained_by_Healthy_life_expectancy": country2[0].exp_healthy_life,
-                 "Explained_by_Freedom_to_make_life_choices": country2[0].exp_freedom_choices,
-                 "Explained_by_Generosity": country2[0].exp_generosity,
-                 "Explained_by_Perceptions_of_corruption": country2[0].exp_percetion_corruption,
-                 "Dystopia_plus_residual": country2[0].dystopia_plus_residual}}
+                 "Ladder_score_in_Dystopia": country2[0].ladder_dystopia}}
     col.update_one(myquery, newvalues)
 
 
@@ -58,7 +44,6 @@ def updateCountry(name, country2):
 def deleteCountry(name):
     col = Cp.connection_pool()
     col.delete_one({"Country_name": name})
-
 
 
 # find countries by name
