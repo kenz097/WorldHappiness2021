@@ -87,10 +87,10 @@ def find_query():
             happy = []
             for i in lista:
                 happy.append(Happiness.Happiness(i))
-            return render_template("test_query.html", country_name=happy)
+            return render_template("test_query.html", list_country=happy)
         except:
-            return render_template("test_query.html", country_name="Nessun paese trovato")
-    return render_template("test_query.html", country_name="problema a caso")
+            return render_template("test_query.html", list_country="Nessun paese trovato")
+    return render_template("test_query.html", list_country="problema a caso")
 
 
 @app.route("/test_query/insert_country", methods=['POST', 'GET'])
@@ -105,8 +105,12 @@ def insert_country():
     social = request.form['demo-social']
     life = request.form['demo-life']
     freedom = request.form['demo-freedom']
+    generosity = request.form['demo-generosity']
+    disto = request.form['demo-disto']
+    corr = request.form['demo-corr']
     # mancano dei valori
-    happy = Happiness.Happiness(name, region, score, dev, upper, lower, pil, social, life, freedom)  # mancano i valori
+    happy = Happiness.Happiness(name, region, score, dev, upper, lower, pil, social, life, freedom, generosity, disto,
+                                corr)
     if Happiness.checkFormato(happy):
         Query.insertCountry(happy)
         return render_template("test_query.html", country_name="oggetto inserito correttamente")
@@ -127,14 +131,17 @@ def update_country():
     social = request.form['demo-social']
     life = request.form['demo-life']
     freedom = request.form['demo-freedom']
-    # mancano dei valori da inserire
+    generosity = request.form['demo-generosity']
+    corr = request.form['demo-corr']
+    disto = request.form['demo-disto']
+
     if name == "":
         return render_template("test_query.html", risposta="nessun paese inserito")
     else:
         result = Query.findCountry(name)
         value = None
         new = Happiness.Happiness(new_name, region, score, dev, upper, lower, pil, social, life,
-                                  freedom)  # mancano valori
+                                  freedom, generosity, corr, disto)
         for i in result:
             value = result
         if value is not None:
@@ -161,10 +168,11 @@ def update_country():
                 new.freedom_choices = value.freedom_choices
             if new.generosity == "":
                 new.generosity = value.generosity
-            if new.percetions_corruption == "":
-                new.percetions_corruption = value.percetions_corruption
             if new.ladder_dystopia == "":
                 new.ladder_dystopia = value.ladder_dystopia
+            if new.percetions_corruption == "":
+                new.percetions_corruption = value.percetions_corruption
+
             Query.updateCountry(new_name, new)
             return render_template("test_query.html", risposta="Aggiornamento effettuato")
         else:
