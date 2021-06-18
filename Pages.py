@@ -35,7 +35,7 @@ def find_query():
         maxpil = request.form['demo-max-pil']
         minlife = request.form['demo-min-life']
         maxlife = request.form['demo-max-life']
-        region = request.form['demo-category']  # non funziona
+        region = request.form['demo-category']
 
         temp1 = 0
         temp2 = 0
@@ -85,11 +85,8 @@ def find_query():
         try:
             lista = Query.fiveParameter(name, region, tothappy, totpil, totlife)
             happy = []
-            j = 0
             for i in lista:
                 happy.append(Happiness.Happiness(i))
-                print(happy[j].country_name)
-                j += 1
             return render_template("test_query.html", country_name=happy)
         except:
             return render_template("test_query.html", country_name="Nessun paese trovato")

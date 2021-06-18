@@ -122,6 +122,4 @@ def fiveParameter(country, region, ladder, gdp, life):
     query = col.find({"$and": [
         {"Country_name": country, "Regional_indicator": region, "Ladder_score": ladder,
          "Logged_GDP_per_capita": gdp, "Healthy_life_expectancy": life}]})
-    for i in query:
-        print(i)
     return query
