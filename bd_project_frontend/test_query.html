@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/query.css') }}" />
 		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
 	</head>
+
 	<body class="is-preload">
 
 		<!-- Header -->
@@ -31,31 +32,45 @@
 		<h2>Dataset</h2>
 									<h3>World Happiness 2021</h3>
 									<div class="table-wrapper">
+										  <div class="table-scroll">
 										<table>
 											<thead>
 												<tr>
 													<th>Paese</th>
 													<th>Continente</th>
-													<th>Happiness</th>
+													<th>Happiness Score</th>
+													<th>DEV</th>
+													<th>Upskrt</th>
+													<th>Lowskrt</th>
 													<th>PIL</th>
-													<th>Vita</th>
-													<th>Upperskrt</th>
-													<th>Lowerskrt</th>
+													<th>Support</th>
+													<th>Healthy Life</th>
+													<th>Freedom</th>
+													<th>Generosity</th>
+													<th>Corruzione</th>
+													<th>Dystopia</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
+											 {% for row in list_country %}
+    										<tr>
+									        <td>{{ row.country_name }}</td>
+        									<td>{{ row.regional_indicator }}</td>
+        									<td>{{ row.ladder_score }}</td>
+        									<td>{{ row.standard_error }}</td>
+        									<td>{{ row.upperwhisker }}</td>
+        									<td>{{ row.lowerwhisker }}</td>
+        									<td>{{ row.logged_gdp }}</td>
+        									<td>{{ row.social_suppport }}</td>
+        									<td>{{ row.healty_life_ex }}</td>
+        									<td>{{ row.freedom_choices }}</td>
+        									<td>{{ row.generosity }}</td>
+        									<td>{{ row.percetions_corruption }}</td>
+        									<td>{{ row.ladder_dystopia }}</td>
+    										</tr>
+    										{% endfor %}
 											</tbody></table>
+									</div>
 									</div>
 
 		<div class="myDiv">
@@ -98,17 +113,17 @@
 
 											<div class="col-12">
 												<select name="demo-category" id="demo-category">
-												<option value="">- Regione -</option>
-													<option value="1">Europa Ovest</option>
-													<option value="2">Europa Centrale e Europa Est</option>
-													<option value="3">Nord America e ANZ</option>
-													<option value="4">America Latina e Caraibi</option>
-													<option value="1">Medio Oriente e Nord Africa</option>
-													<option value="1">Africa Sub-Sahariana</option>
-													<option value="1">Asia Est</option>
-													<option value="1">Asia Sud</option>
-													<option value="1">Asia Sud-Est</option>
-													<option value="1">Comunità di Stati Indipendenti</option>
+												<option value="">- Regione* -</option>
+													<option value="Western Europe">Western Europe</option>
+													<option value="Central and Eastern Europe">Central and Eastern Europe</option>
+													<option value="North America and ANZ">North America and ANZ</option>
+													<option value="Latin America and Caribbean">Latin America and Caribbean</option>
+													<option value="Middle East and North Africa">Middle East and North Africa</option>
+													<option value="Sub-Saharan Africa">Sub-Saharan Africa</option>
+													<option value="East Asia">East Asia</option>
+													<option value="Southeast Asia">Southeast Asia</option>
+													<option value="South Asia">South Asia</option>
+													<option value="Commonwealth of Independent States">Commonwealth of Independent States</option>
 												</select>
 											</div>
 
@@ -146,19 +161,19 @@
 												<input type="text" name="demo-name" id="new_name" value="" placeholder="Paese*" required />
 											</div>
 
-											<div class="col-12">
-												<select name="demo-category" id="new-category" required>
-													<option value="">- Regione* -</option>
-													<option value="1">Europa Ovest</option>
-													<option value="1">Europa Centrale e Europa Est</option>
-													<option value="1">Nord America e ANZ</option>
-													<option value="1">America Latina e Caraibi</option>
-													<option value="1">Medio Oriente e Nord Africa</option>
-													<option value="1">Africa Sub-Sahariana</option>
-													<option value="1">Asia Est</option>
-													<option value="1">Asia Sud</option>
-													<option value="1">Asia Sud-Est</option>
-													<option value="1">Comunità di Stati Indipendenti</option>
+											<div class="col-6">
+												<select name="demo-category" id="demo-region">
+												<option value="">- Regione* -</option>
+													<option value="Western Europe">Western Europe</option>
+													<option value="Central and Eastern Europe">Central and Eastern Europe</option>
+													<option value="North America and ANZ">North America and ANZ</option>
+													<option value="Latin America and Caribbean">Latin America and Caribbean</option>
+													<option value="Middle East and North Africa">Middle East and North Africa</option>
+													<option value="Sub-Saharan Africa">Sub-Saharan Africa</option>
+													<option value="East Asia">East Asia</option>
+													<option value="Southeast Asia">Southeast Asia</option>
+													<option value="South Asia">South Asia</option>
+													<option value="Commonwealth of Independent States">Commonwealth of Independent States</option>
 												</select>
 											</div>
 
@@ -167,41 +182,40 @@
 											</div>
 
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="new_happiness_score" value="" placeholder="" required />
+												<input type="text" class="happy" name="demo-score" id="new_happiness_score" value="" placeholder="" required />
 											</div>
 											<div>
 												Deviazione standard*:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="new_happiness_dev_standard" value="" placeholder="" required />
+												<input type="text" class="happy" name="demo-dev" id="new_happiness_dev_standard" value="" placeholder="" required />
 											</div>
 											<div>
 												Baffo superiore*:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="new_happiness_upper" value="" placeholder="" required />
+												<input type="text" class="happy" name="demo-upper" id="new_happiness_upper" value="" placeholder="" required />
 												</div>
 											<div>
 												Baffo inferiore*:
 											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="new_happiness_lower" value="" placeholder="" required />
-												</div>
-											</div>
 
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" name="demo-lower" id="new_happiness_lower" value="" placeholder="" required />
+											</div>
 
 											<div class="col-2 col-12-xsmall">
 											PIL pro capite*:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="pil" id="new_pil" value="" placeholder="" required />
+												<input type="text" class="pil" name="demo-pil" id="new_pil" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											Supporto sociale*:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="social_sup" id="new_social_sup" value="" placeholder="" required />
+												<input type="text" class="social_sup" name="demo-social" id="new_social_sup" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
@@ -209,16 +223,41 @@
 											</div>
 
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="life" id="new_life" value="" placeholder="" required />
+												<input type="text" class="life" name="demo-life" id="new_life" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											Libertà percepita*:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="new_freedom" value="" placeholder="" required />
+												<input type="text" class="freedom" name="demo-freedom" id="new_freedom" value="" placeholder="" required />
 											</div>
 
+											<div class="col-2 col-12-xsmall">
+											Generosità*:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" name="demo-generosity" id="new_generosity" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Dystopia*:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" name="demo-dysto" id="new_dysto" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Corruzione*:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" name="demo-corr" id="new_corr" value="" placeholder="" required />
+											</div>
+
+
+
+
+										</div>
 
 
 											<div class="col-12">
@@ -230,6 +269,104 @@
 
 									</form>
 		</div>
+
+		<div class="myDiv">
+			<h1 class="h_query">Modifica nazione</h1>
+			<form method="POST" action="/test_query/update_country">
+
+										<div class="row gtr-uniform">
+											<div class="col-8 col-12-xsmall">
+					<input type="text" name="demo-name" id="mod_name" value="" placeholder="Paese*" required />
+				</div>
+
+				<div class="col-8 col-12-xsmall">
+					<input type="text" name="demo-name" id="mod_region" value="" placeholder="Regione" required />
+				</div>
+											<div class="col-2 col-12-xsmall">
+											Punteggio felicità:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="mod_happiness_score" value="" placeholder="" required />
+											</div>
+											<div>
+												Deviazione standard:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="mod_happiness_dev_standard" value="" placeholder="" required />
+											</div>
+											<div>
+												Baffo superiore:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="mod_happiness_upper" value="" placeholder="" required />
+												</div>
+											<div>
+												Baffo inferiore:
+											</div>
+
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="happy" id="mod_happiness_lower" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											PIL pro capite:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="pil" id="mod_pil" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Supporto sociale:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="social_sup" id="mod_social_sup" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Aspettativa di vita:
+											</div>
+
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="life" id="mod_life" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Libertà percepita:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" id="mod_freedom" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Generosità:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" id="mod_generosity" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Dystopia:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" id="mod_dysto" value="" placeholder="" required />
+											</div>
+
+											<div class="col-2 col-12-xsmall">
+											Corruzione:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" class="freedom" id="mod_corr" value="" placeholder="" required />
+											</div>
+										<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Modifica" class="primary" /></li>
+													<li><input type="reset" value="Annulla" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+		</div>
+
 
 
 		<div class="myDiv">
