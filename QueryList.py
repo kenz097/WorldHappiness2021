@@ -18,7 +18,6 @@ def insertCountry(country):
                     "Generosity": country[0].generosity,
                     "Perceptions_of_corruption": country[0].percetions_corruption,
                     "Ladder_score_in_Dystopia": country[0].ladder_dystopia})
-    return True
 
 
 # update one country by name

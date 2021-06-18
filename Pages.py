@@ -108,6 +108,7 @@ def insert_country():
     # mancano dei valori
     happy = Happiness.Happiness(name, region, score, dev, upper, lower, pil, social, life, freedom)  # mancano i valori
     if Happiness.checkFormato(happy):
+        Query.insertCountry(happy)
         return render_template("test_query.html", country_name="oggetto inserito correttamente")
     else:
         return render_template("test_query.html", country_name="valori mancanti")
@@ -139,6 +140,7 @@ def update_country():
         if value is not None:
             if new.country_name == "":
                 new.country_name = value.country_name
+                new_name = value.country_name
             if new.regional_indicator == "":
                 new.regional_indicator = value.regional_indicator
             if new.ladder_score == "":
@@ -163,7 +165,7 @@ def update_country():
                 new.percetions_corruption = value.percetions_corruption
             if new.ladder_dystopia == "":
                 new.ladder_dystopia = value.ladder_dystopia
-            Query.updateCountry()
+            Query.updateCountry(new_name, new)
             return render_template("test_query.html", risposta="Aggiornamento effettuato")
         else:
             return render_template("test_query.html", risposta="Aggiornamento non effettuato")
