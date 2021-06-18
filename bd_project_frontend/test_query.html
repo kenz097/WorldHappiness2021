@@ -33,22 +33,22 @@
 									<h3>World Happiness 2021</h3>
 									<div class="table-wrapper">
 										  <div class="table-scroll">
-										<table>
+										<table id="sortMe">
 											<thead>
 												<tr>
-													<th>Paese</th>
-													<th>Continente</th>
-													<th>Happiness Score</th>
-													<th>DEV</th>
-													<th>Upskrt</th>
-													<th>Lowskrt</th>
-													<th>PIL</th>
-													<th>Support</th>
-													<th>Healthy Life</th>
-													<th>Freedom</th>
-													<th>Generosity</th>
-													<th>Corruzione</th>
-													<th>Dystopia</th>
+													<th onclick="sortTable(0)">Nazione</th>
+													<th onclick="sortTable(1)">Continente</th>
+													<th onclick="sortTable(2)">Happiness Score</th>
+													<th onclick="sortTable(3)">DevStd</th>
+													<th onclick="sortTable(4)">Upskrt</th>
+													<th onclick="sortTable(5)">Lowskrt</th>
+													<th onclick="sortTable(6)">PIL</th>
+													<th onclick="sortTable(7)">Support</th>
+													<th onclick="sortTable(8)">Healthy Life</th>
+													<th onclick="sortTable(9)">Freedom</th>
+													<th onclick="sortTable(10)">Generosity</th>
+													<th onclick="sortTable(11)">Corruzione</th>
+													<th onclick="sortTable(12)">Dystopia</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -398,6 +398,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/query.js"></script>
+			<script src="assets/js/order_table.js"></script>
 
 	</body>
 </html>

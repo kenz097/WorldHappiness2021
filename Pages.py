@@ -109,7 +109,7 @@ def insert_country():
     life = request.form['demo-life']
     freedom = request.form['demo-freedom']
     generosity = request.form['demo-generosity']
-    disto = request.form['demo-disto']
+    disto = request.form['demo-dysto']
     corr = request.form['demo-corr']
     # mancano dei valori
     happy = Happiness.Happiness(name, region, score, dev, upper, lower, pil, social, life, freedom, generosity, disto,
@@ -136,7 +136,7 @@ def update_country():
     freedom = request.form['demo-freedom']
     generosity = request.form['demo-generosity']
     corr = request.form['demo-corr']
-    disto = request.form['demo-disto']
+    disto = request.form['demo-dysto']
 
     if name == "":
         return render_template("test_query.html", risposta="nessun paese inserito")
