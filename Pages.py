@@ -87,7 +87,10 @@ def find_query():
             happy = []
             for i in lista:
                 happy.append(Happiness.Happiness(i))
-            return render_template("test_query.html", list_country=happy)
+            if happy is not None:
+                return render_template("test_query.html", list_country=happy)
+            else:
+                return render_template("test_query.html", list_country="Non ci sono paesi con queste caratteristiche")
         except:
             return render_template("test_query.html", list_country="Nessun paese trovato")
     return render_template("test_query.html", list_country="problema a caso")
