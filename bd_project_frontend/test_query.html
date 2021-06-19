@@ -13,10 +13,10 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a href=homepage class="title">Query Page</a>
+				<a class="title">Query Page</a>
 				<nav>
 					<ul>
-						<li><a href=homepage>Home</a></li>
+						<li><a href=index>Home</a></li>
 						<li><a href=test_query  class="active">Query Page</a></li>
 					</ul>
 				</nav>
@@ -29,8 +29,7 @@
 				</textarea>
 			</div>
 		</div>-->
-		<h2>Dataset</h2>
-									<h3>World Happiness 2021</h3>
+		<h2 class="title_dataset">Dataset <strong>WORLD HAPPINESS 2021</strong></h2>
 									<div class="table-wrapper">
 										  <div class="table-scroll">
 										<table id="sortMe">
@@ -127,21 +126,6 @@
 												</select>
 											</div>
 
-											<div>
-												 <strong>Ordina per:</strong>
-											</div>
-											<div class="col-3 col-12-small">
-												<input type="radio" id="demo-priority-cre" name="demo-priority" >
-												<label for="demo-priority-cre">Punteggio felicità crescente</label>
-											</div>
-											<div class="col-3 col-12-small">
-												<input type="radio" id="demo-priority-dec" name="demo-priority">
-												<label for="demo-priority-dec">Punteggio felicità decrescente</label>
-											</div>
-											<div class="col-3 col-12-small">
-												<input type="radio" id="demo-priority-alf" name="demo-priority" CHECKED>
-												<label for="demo-priority-alf">Nazioni in ordine alfabetico</label>
-											</div>
 											<div class="col-12">
 												<ul class="actions">
 													<li><input type="submit" value="Cerca" class="primary" /></li>
@@ -266,6 +250,8 @@
 													<!-- <li><input type="reset" value="Annulla" /></li> -->
 												</ul>
 											</div>
+
+										<div class="col-1 col-12-xsmall">{{country_name}}</div>
 
 									</form>
 		</div>

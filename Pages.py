@@ -5,7 +5,7 @@ import Happiness
 app = Flask(__name__, template_folder="bd_project_frontend", static_folder="bd_project_frontend/assets")
 
 
-@app.route("/homepage")
+@app.route("/index")
 def home():
     return render_template("index.html")
 
