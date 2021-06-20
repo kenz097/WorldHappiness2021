@@ -4,6 +4,18 @@ import Happiness
 
 app = Flask(__name__, template_folder="bd_project_frontend", static_folder="bd_project_frontend/assets")
 
+table = None
+
+
+def changeResult(value):
+    global table
+    table = value
+    return getResult()
+
+
+def getResult():
+    return table
+
 
 @app.route("/index")
 def home():
@@ -22,7 +34,7 @@ def test_query():
     for i in lista:
         happy.append((Happiness.Happiness(i)))
 
-    return render_template("test_query.html", list_country=happy)
+    return render_template("test_query.html", list_country=changeResult(happy))
 
 
 @app.route("/test_query/find_query", methods=['POST', 'GET'])
@@ -87,13 +99,14 @@ def find_query():
             happy = []
             for i in lista:
                 happy.append(Happiness.Happiness(i))
-            if happy is not None:
-                return render_template("test_query.html", list_country=happy)
+            if len(happy) != 0:
+                return render_template("test_query.html", list_country=changeResult(happy))
             else:
-                return render_template("test_query.html", list_country="Non ci sono paesi con queste caratteristiche")
+                return render_template("test_query.html", response="Non ci sono paesi con queste caratteristiche",
+                                       list_country=getResult())
         except:
-            return render_template("test_query.html", list_country="Nessun paese trovato")
-    return render_template("test_query.html", list_country="problema a caso")
+            return render_template("test_query.html", response="Nessun paese trovato", list_country=getResult())
+    return render_template("test_query.html", response="problema a caso", list_country=getResult())
 
 
 @app.route("/test_query/insert_country", methods=['POST', 'GET'])
@@ -121,9 +134,10 @@ def insert_country():
     happy = Happiness.Happiness(object)
     if Happiness.checkFormato(happy):
         Query.insertCountry(happy)
-        return render_template("test_query.html", country_name="oggetto inserito correttamente")
+        return render_template("test_query.html", country_name="oggetto inserito correttamente",
+                               list_country=getResult())
     else:
-        return render_template("test_query.html", country_name="valori mancanti")
+        return render_template("test_query.html", country_name="valori mancanti", list_country=getResult())
 
 
 @app.route("/test_query/update_country", methods=['POST', 'GET'])
@@ -148,7 +162,7 @@ def update_country():
               "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr,
               "Ladder_score_in_Dystopia": disto}
     if name == "":
-        return render_template("test_query.html", risposta="nessun paese inserito")
+        return render_template("test_query.html", risposta="nessun paese inserito", list_country=getResult())
     else:
         result = Query.findCountry(name)
         value = []
@@ -186,9 +200,9 @@ def update_country():
             if new.percetions_corruption == "":
                 new.percetions_corruption = value[0].percetions_corruption
             Query.updateCountry(new_name, new)
-            return render_template("test_query.html", risposta="Aggiornamento effettuato")
+            return render_template("test_query.html", risposta="Aggiornamento effettuato", list_country=getResult())
         else:
-            return render_template("test_query.html", risposta="Aggiornamento non effettuato")
+            return render_template("test_query.html", risposta="Aggiornamento non effettuato", list_country=getResult())
 
 
 @app.route("/test_query/delete_query", methods=['POST', 'GET'])
@@ -196,7 +210,7 @@ def delete_query():
     if request.method == 'POST':
         name = request.form['demo-name']
         if name == "":
-            return render_template("test_query.html", risposta="nessun paese inserito")
+            return render_template("test_query.html", risposta="nessun paese inserito", list_country=getResult())
         else:
             result = Query.findCountry(name)
             value = None
@@ -204,9 +218,10 @@ def delete_query():
                 value = result
             if value is not None:
                 Query.deleteCountry(name)
-                return render_template("test_query.html", risposta="Eliminazione effettuata")
+                return render_template("test_query.html", risposta="Eliminazione effettuata", list_country=getResult())
             else:
-                return render_template("test_query.html", risposta="Eliminazione non effettuata")
+                return render_template("test_query.html", risposta="Eliminazione non effettuata",
+                                       list_country=getResult())
 
 
 if __name__ == "__main__":
