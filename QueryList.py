@@ -6,18 +6,18 @@ import Happiness
 # insert country inside database
 def insertCountry(country):
     col = Cp.connection_pool()
-    col.insert_one({"Country_name": country[0].country_name,
-                    "Regional_indicator": country[0].regional_indicator,
-                    "Ladder_score": country[0].ladder_score,
-                    "Standard_error_of_ladder_score": country[0].standard_error,
-                    "upperwhisker": country[0].upperwhisker,
-                    "lowerwhisker": country[0].lowerwhisker, "Logged_GDP_per_capita": country[0].logged_gdp,
-                    "Social_support": country[0].social_suppport,
-                    "Healthy_life_expectancy": country[0].healty_life_ex,
-                    "Freedom_to_make_life_choices": country[0].freedom_choices,
-                    "Generosity": country[0].generosity,
-                    "Perceptions_of_corruption": country[0].percetions_corruption,
-                    "Ladder_score_in_Dystopia": country[0].ladder_dystopia})
+    col.insert_one({"Country_name": country.country_name,
+                    "Regional_indicator": country.regional_indicator,
+                    "Ladder_score": country.ladder_score,
+                    "Standard_error_of_ladder_score": country.standard_error,
+                    "upperwhisker": country.upperwhisker,
+                    "lowerwhisker": country.lowerwhisker, "Logged_GDP_per_capita": country.logged_gdp,
+                    "Social_support": country.social_suppport,
+                    "Healthy_life_expectancy": country.healty_life_ex,
+                    "Freedom_to_make_life_choices": country.freedom_choices,
+                    "Generosity": country.generosity,
+                    "Perceptions_of_corruption": country.percetions_corruption,
+                    "Ladder_score_in_Dystopia": country.ladder_dystopia})
 
 
 # update one country by name
@@ -25,18 +25,18 @@ def updateCountry(name, country2):
     col = Cp.connection_pool()
     myquery = {"Country_name": name}
     newvalues = {
-        "$set": {"Country_name": country2[0].country_name, "Regional_indicator": country2[0].regional_indicator,
-                 "Ladder_score": country2[0].ladder_score,
-                 "Standard_error_of_ladder_score": country2[0].standard_error,
-                 "upperwhisker": country2[0].upperwhisker,
-                 "lowerwhisker": country2[0].lowerwhisker, "Logged_GDP_per_capita": country2[0].logged_gdp,
-                 "Social_support": country2[0].social_suppport,
-                 "Healthy_life_expectancy": country2[0].healty_life_ex,
-                 "Freedom_to_make_life_choices": country2[0].freedom_choices,
-                 "Generosity": country2[0].generosity,
-                 "Perceptions_of_corruption": country2[0].percetions_corruption,
-                 "Ladder_score_in_Dystopia": country2[0].ladder_dystopia}}
-    col.update_one(myquery, newvalues)
+        "$set": {"Country_name": country2.country_name, "Regional_indicator": country2.regional_indicator,
+                 "Ladder_score": country2.ladder_score,
+                 "Standard_error_of_ladder_score": country2.standard_error,
+                 "upperwhisker": country2.upperwhisker,
+                 "lowerwhisker": country2.lowerwhisker, "Logged_GDP_per_capita": country2.logged_gdp,
+                 "Social_support": country2.social_suppport,
+                 "Healthy_life_expectancy": country2.healty_life_ex,
+                 "Freedom_to_make_life_choices": country2.freedom_choices,
+                 "Generosity": country2.generosity,
+                 "Perceptions_of_corruption": country2.percetions_corruption,
+                 "Ladder_score_in_Dystopia": country2.ladder_dystopia}}
+    col.update(myquery, newvalues)
 
 
 # delete country by name

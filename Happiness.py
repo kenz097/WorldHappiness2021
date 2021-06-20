@@ -1,4 +1,7 @@
 # class Happiness for our database
+from typing import Type, Any
+
+
 class Happiness:
     def __init__(self, happiness):
         self.id_dataset = happiness["_id"]
@@ -16,6 +19,7 @@ class Happiness:
         self.percetions_corruption = happiness["Perceptions_of_corruption"]
         self.ladder_dystopia = happiness["Ladder_score_in_Dystopia"]
 
+
     def dump(self):
         return {"Country_name": self.country_name,
                 "Regional_indicator": self.regional_indicator,
@@ -30,10 +34,10 @@ class Happiness:
 
 # check if all attribute aren't Null
 def checkFormato(test):
-    if test[0].country_name == "" and test[0].regional_indicator == "" and test[0].ladder_score == "" \
-            and test[0].standard_error == "" and test[0].upperwhisker == "" and test[0].lowerwhisker == "" \
-            and test[0].logged_gdp == "" and test[0].social_suppport == "" and test[0].healty_life_ex == "" \
-            and test[0].freedom_choices == "" and test[0].generosity == "" and test[0].percetions_corruption == "" \
-            and test[0].ladder_dystopia:
-        return True
-    return False
+    if test.country_name == "" and test.regional_indicator == "" and test.ladder_score == "" \
+            and test.standard_error == "" and test.upperwhisker == "" and test.lowerwhisker == "" \
+            and test.logged_gdp == "" and test.social_suppport == "" and test.healty_life_ex == "" \
+            and test.freedom_choices == "" and test.generosity == "" and test.percetions_corruption == "" \
+            and test.ladder_dystopia:
+        return False
+    return True

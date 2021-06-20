@@ -16,7 +16,7 @@
 				<a class="title">Query Page</a>
 				<nav>
 					<ul>
-						<li><a href=index>Home</a></li>
+						<li><a href=index >Home</a></li>
 						<li><a href=test_query  class="active">Query Page</a></li>
 					</ul>
 				</nav>
@@ -139,7 +139,7 @@
 
 			<div class="myDiv">
 			<h1 class="h_query">Inserimento nuova nazione</h1>
-			<form method="post" action="#">
+			<form method="POST" action="/test_query/insert_country">
 										<div class="row gtr-uniform">
 											<div class="col-8 col-12-xsmall">
 												<input type="text" name="demo-name" id="new_name" value="" placeholder="Paese*" required />
@@ -266,46 +266,46 @@
 				</div>
 
 				<div class="col-8 col-12-xsmall">
-					<input type="text" name="demo-name" id="mod_region" value="" placeholder="Regione" required />
+					<input type="text" name="demo-new-name" id="mod_region" value="" placeholder="Regione" required />
 				</div>
 											<div class="col-2 col-12-xsmall">
 											Punteggio felicità:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_score" value="" placeholder="" required />
+												<input type="text" name="demo-score" class="happy" id="mod_happiness_score" value="" placeholder="" required />
 											</div>
 											<div>
 												Deviazione standard:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_dev_standard" value="" placeholder="" required />
+												<input type="text" name="demo-dev" class="happy" id="mod_happiness_dev_standard" value="" placeholder="" required />
 											</div>
 											<div>
 												Baffo superiore:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_upper" value="" placeholder="" required />
+												<input type="text" name="demo-upper" class="happy" id="mod_happiness_upper" value="" placeholder="" required />
 												</div>
 											<div>
 												Baffo inferiore:
 											</div>
 
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_lower" value="" placeholder="" required />
+												<input type="text" name="demo-lower" class="happy" id="mod_happiness_lower" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											PIL pro capite:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="pil" id="mod_pil" value="" placeholder="" required />
+												<input type="text" name="demo-pil" class="pil" id="mod_pil" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											Supporto sociale:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="social_sup" id="mod_social_sup" value="" placeholder="" required />
+												<input type="text"name="demo-social"  class="social_sup" id="mod_social_sup" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
@@ -313,35 +313,35 @@
 											</div>
 
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="life" id="mod_life" value="" placeholder="" required />
+												<input type="text"name="demo-life"  class="life" id="mod_life" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											Libertà percepita:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_freedom" value="" placeholder="" required />
+												<input type="text"name="demo-freedom"  class="freedom" id="mod_freedom" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											Generosità:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_generosity" value="" placeholder="" required />
+												<input type="text"name="demo-generosity"  class="freedom" id="mod_generosity" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											Dystopia:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_dysto" value="" placeholder="" required />
+												<input type="text" name="demo-dysto" class="freedom" id="mod_dysto" value="" placeholder="" required />
 											</div>
 
 											<div class="col-2 col-12-xsmall">
 											Corruzione:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_corr" value="" placeholder="" required />
+												<input type="text"name="demo-corr"  class="freedom" id="mod_corr" value="" placeholder="" required />
 											</div>
 										<div class="col-12">
 												<ul class="actions">
@@ -351,6 +351,7 @@
 											</div>
 										</div>
 									</form>
+			<div class="col-1 col-12-xsmall">{{risposta}}</div>
 		</div>
 
 

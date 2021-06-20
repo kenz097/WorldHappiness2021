@@ -109,11 +109,16 @@ def insert_country():
     life = request.form['demo-life']
     freedom = request.form['demo-freedom']
     generosity = request.form['demo-generosity']
-    disto = request.form['demo-dysto']
     corr = request.form['demo-corr']
-    # mancano dei valori
-    happy = Happiness.Happiness(name, region, score, dev, upper, lower, pil, social, life, freedom, generosity, disto,
-                                corr)
+    disto = request.form['demo-dysto']
+
+    object = {"_id": "", "Country_name": name, "Regional_indicator": region, "Ladder_score": score,
+              "Standard_error_of_ladder_score": dev, "upperwhisker": upper, "lowerwhisker": lower,
+              "Logged_GDP_per_capita": pil, "Social_support": social, "Healthy_life_expectancy": life,
+              "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr,
+              "Ladder_score_in_Dystopia": disto}
+
+    happy = Happiness.Happiness(object)
     if Happiness.checkFormato(happy):
         Query.insertCountry(happy)
         return render_template("test_query.html", country_name="oggetto inserito correttamente")
@@ -137,45 +142,49 @@ def update_country():
     generosity = request.form['demo-generosity']
     corr = request.form['demo-corr']
     disto = request.form['demo-dysto']
-
+    object = {"_id": "", "Country_name": name, "Regional_indicator": region, "Ladder_score": score,
+              "Standard_error_of_ladder_score": dev, "upperwhisker": upper, "lowerwhisker": lower,
+              "Logged_GDP_per_capita": pil, "Social_support": social, "Healthy_life_expectancy": life,
+              "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr,
+              "Ladder_score_in_Dystopia": disto}
     if name == "":
         return render_template("test_query.html", risposta="nessun paese inserito")
     else:
         result = Query.findCountry(name)
-        value = None
-        new = Happiness.Happiness(new_name, region, score, dev, upper, lower, pil, social, life,
-                                  freedom, generosity, corr, disto)
+        value = []
+        new = Happiness.Happiness(object)
         for i in result:
-            value = result
-        if value is not None:
+            value.append(Happiness.Happiness(i))
+        if len(value) != 0:
+            if new_name == "":
+                new_name = name
             if new.country_name == "":
                 new.country_name = value.country_name
                 new_name = value.country_name
             if new.regional_indicator == "":
-                new.regional_indicator = value.regional_indicator
+                new.regional_indicator = value[0].regional_indicator
             if new.ladder_score == "":
-                new.ladder_score = value.ladder_score
+                new.ladder_score = value[0].ladder_score
             if new.standard_error == "":
-                new.standard_error = value.ladder_score
+                new.standard_error = value[0].ladder_score
             if new.upperwhisker == "":
-                new.upperwhisker = value.upperwhisker
+                new.upperwhisker = value[0].upperwhisker
             if new.lowerwhisker == "":
-                new.lowerwhisker = value.lowerwhisker
+                new.lowerwhisker = value[0].lowerwhisker
             if new.logged_gdp == "":
-                new.logged_gdp = value.logged_gdp
+                new.logged_gdp = value[0].logged_gdp
             if new.social_suppport == "":
-                new.logged_gdp = value.logged_gdp
+                new.logged_gdp = value[0].logged_gdp
             if new.healty_life_ex == "":
-                new.healty_life_ex = value.healty_life_ex
+                new.healty_life_ex = value[0].healty_life_ex
             if new.freedom_choices == "":
-                new.freedom_choices = value.freedom_choices
+                new.freedom_choices = value[0].freedom_choices
             if new.generosity == "":
-                new.generosity = value.generosity
+                new.generosity = value[0].generosity
             if new.ladder_dystopia == "":
-                new.ladder_dystopia = value.ladder_dystopia
+                new.ladder_dystopia = value[0].ladder_dystopia
             if new.percetions_corruption == "":
-                new.percetions_corruption = value.percetions_corruption
-
+                new.percetions_corruption = value[0].percetions_corruption
             Query.updateCountry(new_name, new)
             return render_template("test_query.html", risposta="Aggiornamento effettuato")
         else:
