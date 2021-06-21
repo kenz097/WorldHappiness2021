@@ -105,11 +105,11 @@ def find_query():
             if len(happy) != 0:
                 return render_template("test_query.html", list_country=changeResult(happy))
             else:
-                return render_template("test_query.html", response="Non ci sono paesi con queste caratteristiche",
+                return render_template("test_query.html", response="Non esistono paesi con queste caratteristiche",
                                        list_country=getResult())
         except:
             return render_template("test_query.html", response="Nessun paese trovato", list_country=getResult())
-    return render_template("test_query.html", response="problema a caso", list_country=getResult())
+    return render_template("test_query.html", response="Errore rilevato", list_country=getResult())
 
 
 @app.route("/test_query/insert_country", methods=['POST', 'GET'])
@@ -165,7 +165,7 @@ def update_country():
               "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr,
               "Ladder_score_in_Dystopia": disto}
     if name == "":
-        return render_template("test_query.html", response="nessun paese inserito", list_country=getResult())
+        return render_template("test_query.html", response="Errore. Nessun paese inserito", list_country=getResult())
     else:
         result = Query.findCountry(name)
         value = []
@@ -213,7 +213,7 @@ def delete_query():
     if request.method == 'POST':
         name = request.form['demo-name']
         if name == "":
-            return render_template("test_query.html", response="nessun paese inserito", list_country=getResult())
+            return render_template("test_query.html", response="Nessun paese rilevato da eliminare", list_country=getResult())
         else:
             result = Query.findCountry(name)
             value = None
