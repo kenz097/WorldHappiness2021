@@ -17,6 +17,14 @@ def getResult():
     return table
 
 
+def fullTable():
+    lista = Query.countryAlphabetica()
+    happy = []
+    for i in lista:
+        happy.append((Happiness.Happiness(i)))
+    return happy
+
+
 @app.route("/index")
 def home():
     return render_template("index.html")
@@ -29,12 +37,7 @@ def main():
 
 @app.route("/test_query")
 def test_query():
-    lista = Query.countryAlphabetica()
-    happy = []
-    for i in lista:
-        happy.append((Happiness.Happiness(i)))
-
-    return render_template("test_query.html", list_country=changeResult(happy))
+    return render_template("test_query.html", list_country=changeResult(fullTable()))
 
 
 @app.route("/test_query/find_query", methods=['POST', 'GET'])
@@ -134,8 +137,8 @@ def insert_country():
     happy = Happiness.Happiness(object)
     if Happiness.checkFormato(happy):
         Query.insertCountry(happy)
-        return render_template("test_query.html", country_name="oggetto inserito correttamente",
-                               list_country=getResult())
+        return render_template("test_query.html", country_name="paese inserito correttamente",
+                               list_country=fullTable())
     else:
         return render_template("test_query.html", country_name="valori mancanti", list_country=getResult())
 
@@ -200,7 +203,7 @@ def update_country():
             if new.percetions_corruption == "":
                 new.percetions_corruption = value[0].percetions_corruption
             Query.updateCountry(new_name, new)
-            return render_template("test_query.html", risposta="Aggiornamento effettuato", list_country=getResult())
+            return render_template("test_query.html", risposta="Aggiornamento effettuato", list_country=fullTable())
         else:
             return render_template("test_query.html", risposta="Aggiornamento non effettuato", list_country=getResult())
 
@@ -218,7 +221,7 @@ def delete_query():
                 value = result
             if value is not None:
                 Query.deleteCountry(name)
-                return render_template("test_query.html", risposta="Eliminazione effettuata", list_country=getResult())
+                return render_template("test_query.html", risposta="Eliminazione effettuata", list_country=fullTable())
             else:
                 return render_template("test_query.html", risposta="Eliminazione non effettuata",
                                        list_country=getResult())
