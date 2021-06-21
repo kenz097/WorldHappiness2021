@@ -137,10 +137,10 @@ def insert_country():
     happy = Happiness.Happiness(object)
     if Happiness.checkFormato(happy):
         Query.insertCountry(happy)
-        return render_template("test_query.html", country_name="paese inserito correttamente",
+        return render_template("test_query.html", response="paese inserito correttamente",
                                list_country=fullTable())
     else:
-        return render_template("test_query.html", country_name="valori mancanti", list_country=getResult())
+        return render_template("test_query.html", response="valori mancanti", list_country=getResult())
 
 
 @app.route("/test_query/update_country", methods=['POST', 'GET'])
@@ -165,7 +165,7 @@ def update_country():
               "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr,
               "Ladder_score_in_Dystopia": disto}
     if name == "":
-        return render_template("test_query.html", risposta="nessun paese inserito", list_country=getResult())
+        return render_template("test_query.html", response="nessun paese inserito", list_country=getResult())
     else:
         result = Query.findCountry(name)
         value = []
@@ -203,9 +203,9 @@ def update_country():
             if new.percetions_corruption == "":
                 new.percetions_corruption = value[0].percetions_corruption
             Query.updateCountry(new_name, new)
-            return render_template("test_query.html", risposta="Aggiornamento effettuato", list_country=fullTable())
+            return render_template("test_query.html", response="Aggiornamento effettuato", list_country=fullTable())
         else:
-            return render_template("test_query.html", risposta="Aggiornamento non effettuato", list_country=getResult())
+            return render_template("test_query.html", response="Aggiornamento non effettuato", list_country=getResult())
 
 
 @app.route("/test_query/delete_query", methods=['POST', 'GET'])
@@ -213,7 +213,7 @@ def delete_query():
     if request.method == 'POST':
         name = request.form['demo-name']
         if name == "":
-            return render_template("test_query.html", risposta="nessun paese inserito", list_country=getResult())
+            return render_template("test_query.html", response="nessun paese inserito", list_country=getResult())
         else:
             result = Query.findCountry(name)
             value = None
@@ -221,9 +221,9 @@ def delete_query():
                 value = result
             if value is not None:
                 Query.deleteCountry(name)
-                return render_template("test_query.html", risposta="Eliminazione effettuata", list_country=fullTable())
+                return render_template("test_query.html", response="Eliminazione effettuata", list_country=fullTable())
             else:
-                return render_template("test_query.html", risposta="Eliminazione non effettuata",
+                return render_template("test_query.html", response="Eliminazione non effettuata",
                                        list_country=getResult())
 
 

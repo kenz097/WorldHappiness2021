@@ -24,7 +24,8 @@
 }
 .table-scroll {
   height:400px;
-  overflow:auto;
+  overflow-x:auto;
+  overflow-y:auto;
   margin-top:20px;
 }
 .table-wrapper table {
@@ -38,8 +39,10 @@ table thead tr {
 table tbody {
     display: block;
     height: 300px;
-    overflow: auto;
-}
+    overflow-x:auto;
+    overflow-y:auto;
+    }
+
 th:hover {
 cursor: pointer;
 background-color: #5e42a6;
@@ -68,12 +71,14 @@ td{
     }
 
     .table-wrapper {
-        overflow: auto;
+    overflow-x:auto;
     }
+
     .table-scroll{
-      height:auto;
-      overflow:hidden;
-    }
+        height:auto;
+        overflow-x:auto;
+        overflow-y:auto;
+        }
 
     td {
     text-align: left;
