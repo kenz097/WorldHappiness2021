@@ -33,6 +33,7 @@
 
 table thead tr {
     display: block;
+    text-align: left;
 }
 table tbody {
     display: block;
@@ -57,6 +58,7 @@ td{
       height:25px;
       border: 1px #5e42a6 !important;
       font-size:15px;
+      text-align: left;
       padding:3px !important;
       width:150px !important;
       line-height: 30px;
@@ -72,6 +74,10 @@ td{
       height:auto;
       overflow:hidden;
     }
+
+    td {
+    text-align: left;
+}
     /*
 table thead tr {
     display: block;

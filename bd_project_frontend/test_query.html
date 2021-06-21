@@ -128,9 +128,15 @@
 
 											<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" value="Cerca" class="primary" /></li>
+													<li><input type="submit" value="Cerca" class="primary" onclick="return search_alert();"/></li>
 												<!--	<li><input type="reset" value="Annulla" /></li> -->
 												</ul>
+                                                <script>
+                                                    function search_alert() {
+                                                    alert("Ricerca effettuata con successo!");
+                                                    return true;
+                                                    }
+                                                </script>
 											</div>
 										</div>
 									</form>
@@ -246,12 +252,20 @@
 
 											<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" value="Aggiungi" class="primary" /></li>
+													<li><input type="submit" value="Aggiungi" class="primary" onclick="return insert_alert();" /></li>
 													<!-- <li><input type="reset" value="Annulla" /></li> -->
 												</ul>
+                                                <script>
+
+                                                    function insert_alert() {
+                                                    var result = {{risposta}};
+                                                    alert(risposta);
+                                                    return true;
+                                                    }
+                                                </script>
 											</div>
 
-										<div class="col-1 col-12-xsmall">{{country_name}}</div>
+										<div class="col-6 col-12-xsmall">{{risposta}}</div>
 
 									</form>
 		</div>
@@ -262,12 +276,31 @@
 
 										<div class="row gtr-uniform">
 											<div class="col-8 col-12-xsmall">
-					<input type="text" name="demo-name" id="mod_name" value="" placeholder="Paese*" required />
+					<input type="text" name="demo-name" id="mod_name" value="" placeholder="Paese da modificare*" required />
 				</div>
 
-				<div class="col-8 col-12-xsmall">
-					<input type="text" name="demo-name" id="mod_region" value="" placeholder="Regione" required />
+
+										<div class="row gtr-uniform">
+											<div class="col-8 col-12-xsmall">
+					<input type="text" name="demo-new-name" id="mod_name2" value="" placeholder="Nuovo nome nazione*/>
 				</div>
+
+                                            <div class="col-6"\>
+												<select name="demo-category" id="demo-region2">
+												<option value="">- Regione* -</option>
+													<option value="Western Europe">Western Europe</option>
+													<option value="Central and Eastern Europe">Central and Eastern Europe</option>
+													<option value="North America and ANZ">North America and ANZ</option>
+													<option value="Latin America and Caribbean">Latin America and Caribbean</option>
+													<option value="Middle East and North Africa">Middle East and North Africa</option>
+													<option value="Sub-Saharan Africa">Sub-Saharan Africa</option>
+													<option value="East Asia">East Asia</option>
+													<option value="Southeast Asia">Southeast Asia</option>
+													<option value="South Asia">South Asia</option>
+													<option value="Commonwealth of Independent States">Commonwealth of Independent States</option>
+												</select>
+											</div>
+
 											<div class="col-2 col-12-xsmall">
 											Punteggio felicità:
 											</div>
@@ -345,9 +378,15 @@
 											</div>
 										<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" value="Modifica" class="primary" /></li>
+													<li><input type="submit" value="Modifica" class="primary" onclick="return modify_alert();" /></li>
 													<li><input type="reset" value="Annulla" /></li>
 												</ul>
+                                                <script>
+                                                    function modify_alert() {
+                                                    alert("Modifica effettuata con successo!");
+                                                    return true;
+                                                    }
+                                                </script>
 											</div>
 										</div>
 									</form>
@@ -361,7 +400,13 @@
 											<div class="col-1 col-12-xsmall">
 												<input type="text" name="demo-name" id="name" value="" placeholder="Nome Paese" />
 											</div>
-			<button class="query_button" onclick="">Elimina</button>
+			<button class="query_button" onclick="return delete_alert();">Elimina</button>
+                                                <script>
+                                                    function delete_alert() {
+                                                    alert("Cancellazione effettuata con successo!");
+                                                    return true;
+                                                    }
+                                                </script>
 			</form>
 
 		</div>
