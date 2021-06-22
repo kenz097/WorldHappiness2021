@@ -1,4 +1,4 @@
-
+/*
 .myDiv {
   border: 3px outset #312450;
   text-align: left;
@@ -65,8 +65,8 @@ td{
       padding:3px !important;
       width:150px !important;
       line-height: 30px;
-        -webkit-column-gap: 90px; /* Chrome, Safari, Opera */
-        -moz-column-gap: 40px; /* Firefox */
+        -webkit-column-gap: 90px;
+        -moz-column-gap: 40px;
         column-gap: 40px;
     }
 
@@ -82,24 +82,83 @@ td{
 
     td {
     text-align: left;
-}
-    /*
-table thead tr {
-    display: block;
-}
-table th, table td {
-    width: 80px;
-}
-table tbody {
-    display: block;
-    height: 90px;
-    overflow: auto;
-}
-th {
-    text-align: left;
-}
-td {
-    text-align: left;
-    white-space: pre;
-}*/
+} */
 
+.myDiv {
+            border: 3px outset #312450;
+            text-align: left;
+            padding: 5px;
+        }
+
+        .query_button {
+            margin-top: 8px;
+        }
+
+        .happy {
+            size: 77;
+            margin-top: 5px;
+        }
+
+        .title_dataset {
+            text-align: center;
+        }
+
+
+
+        .table-scroll {
+            margin: 50px;
+            width: 90%;
+            max-height: 200px;
+            min-height: 200px;
+            overflow: auto;
+            margin-top: 20px;
+        }
+
+
+        th:hover {
+            cursor: pointer;
+            background-color: #5e42a6;
+        }
+
+        table,
+        tbody,
+        thead,
+        tr,
+        th,
+        td {
+            margin: 0;
+            padding: 0 15px;
+            border: 0px #5e42a6;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+
+        th,td {
+            white-space: nowrap;
+        }
+
+        td {
+            overflow-wrap:break-word;
+            height: 25px;
+            border: 1px #5e42a6 !important;
+            font-size: 15px;
+            text-align: left;
+            padding: 3px !important;
+            width: 150px !important;
+            line-height: 30px;
+            -webkit-column-gap: 90px;
+            /* Chrome, Safari, Opera */
+            -moz-column-gap: 40px;
+            /* Firefox */
+            column-gap: 40px;
+
+            text-align: left;
+        }
+
+
+        .table-scroll {
+            height: auto;
+            overflow: auto;
+        }
