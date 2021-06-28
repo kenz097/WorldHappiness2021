@@ -38,6 +38,6 @@ def checkFormato(test):
             and test.standard_error == "" and test.upperwhisker == "" and test.lowerwhisker == "" \
             and test.logged_gdp == "" and test.social_suppport == "" and test.healty_life_ex == "" \
             and test.freedom_choices == "" and test.generosity == "" and test.percetions_corruption == "" \
-            and test.ladder_dystopia:
+            and test.ladder_dystopia == "":
         return False
     return True

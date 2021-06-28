@@ -29,14 +29,14 @@
 				</textarea>
 			</div>
 		</div>-->
-		<h2 class="title_dataset">Dataset <strong>WORLD HAPPINESS 2021</strong></h2>
+		<h1 class="title_dataset">Dataset <strong>WORLD HAPPINESS 2021</strong></h1>
 									<div class="table-wrapper">
 										  <div class="table-scroll">
 										<table id="sortMe">
 											<thead>
 												<tr>
 													<th onclick="sortTable(0)">Nazione</th>
-													<th onclick="sortTable(1)">Continente</th>
+													<th onclick="sortTable(1)">Regione</th>
 													<th onclick="sortTable(2)">Happiness Score</th>
 													<th onclick="sortTable(3)">DevStd</th>
 													<th onclick="sortTable(4)">Upskrt</th>
@@ -73,46 +73,24 @@
 									</div>
 
 		<div class="myDiv">
-			<h1 class="h_query">Ricerca WorldHappiness2021</h1>
+			<h1 class="h_query">Ricerca</h1>
 			<form method="POST" action="/test_query/find_query">
 										<div class="row gtr-uniform">
-											<div class="col-8 col-12-xsmall">
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Paese" />
+												<p>
+													 <div>
+											Nazione:
 											</div>
 
-											<div>
-											Punteggio felicità:
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text"name="demo-min-happy" class="happy" id="min_happy" value="" placeholder="min"/>
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text"name="demo-max-happy" class="happy" id="max_happy" value="" placeholder="max"/>
+											<div class="col-2 col-12-xsmall">
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Nome Paese" />
 											</div>
 
-											<div>
-											PIL pro capite:
+												<div>
+											Regione:
 											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" name="demo-min-pil"class="pil" id="min_pil" value="" placeholder="min"/>
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" name="demo-max-pil"class="pil" id="max_pil" value="" placeholder="max"/>
-											</div>
-
-											<div>
-											Aspettativa di vita:
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text"name="demo-min-life" class="pil" id="min_life" value="" placeholder="min"/>
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" name="demo-max-life"class="pil" id="max_life" value="" placeholder="max"/>
-											</div>
-
-											<div class="col-12">
+											<div class="col-4">
 												<select name="demo-category" id="demo-category">
-												<option value="">- Regione* -</option>
+												<option value="">- Seleziona -</option>
 													<option value="Western Europe">Western Europe</option>
 													<option value="Central and Eastern Europe">Central and Eastern Europe</option>
 													<option value="North America and ANZ">North America and ANZ</option>
@@ -124,20 +102,51 @@
 													<option value="South Asia">South Asia</option>
 													<option value="Commonwealth of Independent States">Commonwealth of Independent States</option>
 												</select>
+											</div> </p>
+
+
+											<p><div>
+											Punteggio felicità:
 											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text"name="demo-min-happy" class="happy" id="min_happy" value="" placeholder="da"/>
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text"name="demo-max-happy" class="happy" id="max_happy" value="" placeholder="a"/>
+											</div>
+
+											<div>
+											PIL pro capite:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" name="demo-min-pil"class="pil" id="min_pil" value="" placeholder="da"/>
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" name="demo-max-pil"class="pil" id="max_pil" value="" placeholder="a"/>
+											</div>
+
+											<div>
+											Aspettativa di vita:
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text"name="demo-min-life" class="pil" id="min_life" value="" placeholder="da"/>
+											</div>
+											<div class="col-1 col-12-xsmall">
+												<input type="text" name="demo-max-life"class="pil" id="max_life" value="" placeholder="a"/>
+											</div> </p>
 
 											<div class="col-12">
 												<ul class="actions">
 													<li><input type="submit" value="Cerca" class="primary" onclick="return search_alert();"/></li>
 												<!--	<li><input type="reset" value="Annulla" /></li> -->
 												</ul>
-                                               <script>
+                                             <!--  <script>
                                                     function search_alert() {
                                                     var result = ["{{response}}"];
                                                     alert(result);
                                                     return true;
                                                     }
-                                                </script>
+                                                </script> -->
 											</div>
 										</div>
 									</form>
@@ -147,14 +156,19 @@
 			<div class="myDiv">
 			<h1 class="h_query">Inserimento nuova nazione</h1>
 			<form method="POST" action="/test_query/insert_country">
-										<div class="row gtr-uniform">
-											<div class="col-8 col-12-xsmall">
-												<input type="text" name="demo-name" id="new_name" value="" placeholder="Paese*" required />
+										 <div class="row gtr-uniform">
+											<p> <div>
+											Nazione*:
 											</div>
-
-											<div class="col-6">
+											<div class="col-2 col-12-xsmall">
+												<input type="text" name="demo-name" id="new_name" value="" placeholder="" required />
+											</div>
+											<div>
+											Regione*:
+											</div>
+											<div class="col-4">
 												<select name="demo-category" id="demo-region">
-												<option value="">- Regione* -</option>
+												<option value="">- Seleziona -</option>
 													<option value="Western Europe">Western Europe</option>
 													<option value="Central and Eastern Europe">Central and Eastern Europe</option>
 													<option value="North America and ANZ">North America and ANZ</option>
@@ -168,14 +182,15 @@
 												</select>
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											 <div>
 											Punteggio felicità*:
 											</div>
 
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="happy" name="demo-score" id="new_happiness_score" value="" placeholder="" required />
-											</div>
-											<div>
+											</div> </p>
+
+											<p> <div>
 												Deviazione standard*:
 											</div>
 											<div class="col-1 col-12-xsmall">
@@ -193,23 +208,23 @@
 
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="happy" name="demo-lower" id="new_happiness_lower" value="" placeholder="" required />
-											</div>
+											</div> </p>
 
-											<div class="col-2 col-12-xsmall">
+											<p> <div>
 											PIL pro capite*:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="pil" name="demo-pil" id="new_pil" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Supporto sociale*:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="social_sup" name="demo-social" id="new_social_sup" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Aspettativa di vita*:
 											</div>
 
@@ -217,36 +232,33 @@
 												<input type="text" class="life" name="demo-life" id="new_life" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Libertà percepita*:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" name="demo-freedom" id="new_freedom" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Generosità*:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" name="demo-generosity" id="new_generosity" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Dystopia*:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" name="demo-dysto" id="new_dysto" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Corruzione*:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" name="demo-corr" id="new_corr" value="" placeholder="" required />
-											</div>
-
-
-
+											</div> </p>
 
 										</div>
 
@@ -272,18 +284,24 @@
 			<form method="POST" action="/test_query/update_country">
 
 										<div class="row gtr-uniform">
-											<div class="col-8 col-12-xsmall">
+
+											<p> <div class="col-2 col-12-xsmall">
 					<input type="text" name="demo-name" id="mod_name" value="" placeholder="Paese da modificare*" required />
+				    </div> </p>
+
+											<p> <div>
+											Nazione:
+											</div>
+											<div class="col-2 col-12-xsmall">
+					<input type="text" name="demo-name" id="mod_name2" value="" placeholder="Nuovo nome nazione"/>
 				    </div>
+											<div>
+											Regione:
+											</div>
 
-											<div class="col-8 col-12-xsmall">
-					<input type="text" name="demo-name" id="mod_name2" value="" placeholder="Nuovo nome paese"/>
-				    </div>
-
-
-                                            <div class="col-6">
+                                            <div class="col-4">
 												<select name="demo-category" id="demo-region2">
-												<option value="">- Regione* -</option>
+												<option value="">- Seleziona -</option>
 													<option value="Western Europe">Western Europe</option>
 													<option value="Central and Eastern Europe">Central and Eastern Europe</option>
 													<option value="North America and ANZ">North America and ANZ</option>
@@ -296,13 +314,15 @@
 													<option value="Commonwealth of Independent States">Commonwealth of Independent States</option>
 												</select>
 											</div>
-											<div class="col-2 col-12-xsmall">
+
+											<div>
 											Punteggio felicità:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="happy" id="mod_happiness_score" value="" placeholder="" required />
-											</div>
-											<div>
+											</div> </p>
+
+											<p> <div>
 												Deviazione standard:
 											</div>
 											<div class="col-1 col-12-xsmall">
@@ -317,26 +337,25 @@
 											<div>
 												Baffo inferiore:
 											</div>
-
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="happy" id="mod_happiness_lower" value="" placeholder="" required />
-											</div>
+											</div> </p>
 
-											<div class="col-2 col-12-xsmall">
+											<p> <div>
 											PIL pro capite:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="pil" id="mod_pil" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Supporto sociale:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="social_sup" id="mod_social_sup" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Aspettativa di vita:
 											</div>
 
@@ -344,37 +363,38 @@
 												<input type="text" class="life" id="mod_life" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Libertà percepita:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" id="mod_freedom" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Generosità:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" id="mod_generosity" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Dystopia:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" id="mod_dysto" value="" placeholder="" required />
 											</div>
 
-											<div class="col-2 col-12-xsmall">
+											<div>
 											Corruzione:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" id="mod_corr" value="" placeholder="" required />
-											</div>
+											</div> </p>
+
 										<div class="col-12">
 												<ul class="actions">
 													<li><input type="submit" value="Modifica" class="primary" onclick="return modify_alert();" /></li>
-													<li><input type="reset" value="Annulla" /></li>
+
 												</ul>
                                                 <script>
                                                     function modify_alert() {
@@ -393,9 +413,12 @@
 		<div class="myDiv">
 			<h1 class="h_query">Cancellazione nazione</h1>
 			<form method="POST" action="/test_query/delete_query">
-											<div class="col-1 col-12-xsmall">
-												<input type="text" name="demo-name" id="name" value="" placeholder="Nome Paese" />
-											</div>
+
+				<div class="row gtr-uniform">
+											<p> <div class="col-4 col-12-xsmall">
+												<input type="text" name="demo-name" id="name" value="" placeholder="Nome nazione da eliminare" />
+											</div> </p> </div>
+
 			<button class="query_button" onclick="return delete_alert();">Elimina</button>
                                                 <script>
                                                     function delete_alert() {
