@@ -47,7 +47,7 @@
 													<th onclick="sortTable(9)">Freedom</th>
 													<th onclick="sortTable(10)">Generosity</th>
 													<th onclick="sortTable(11)">Corruzione</th>
-													<th onclick="sortTable(12)">Dystopia</th>
+													<!-- <th onclick="sortTable(12)">Dystopia</th> -->
 												</tr>
 											</thead>
 											<tbody>
@@ -65,7 +65,7 @@
         									<td>{{ row.freedom_choices }}</td>
         									<td>{{ row.generosity }}</td>
         									<td>{{ row.percetions_corruption }}</td>
-        									<td>{{ row.ladder_dystopia }}</td>
+        									<!--<td>{{ row.ladder_dystopia }}</td> -->
     										</tr>
     										{% endfor %}
 											</tbody></table>
@@ -76,19 +76,17 @@
 			<h1 class="h_query">Ricerca</h1>
 			<form method="POST" action="/test_query/find_query">
 										<div class="row gtr-uniform">
-												<p>
-													 <div>
+
+												 <div>
 											Nazione:
 											</div>
-
-											<div class="col-2 col-12-xsmall">
+													<div class="col-2 col-12-xsmall">
 												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Nome Paese" />
 											</div>
-
-												<div>
+												 <div>
 											Regione:
 											</div>
-											<div class="col-4">
+												<div class="col-4">
 												<select name="demo-category" id="demo-category">
 												<option value="">- Seleziona -</option>
 													<option value="Western Europe">Western Europe</option>
@@ -102,10 +100,9 @@
 													<option value="South Asia">South Asia</option>
 													<option value="Commonwealth of Independent States">Commonwealth of Independent States</option>
 												</select>
-											</div> </p>
+											</div>
 
-
-											<p><div>
+											<div>
 											Punteggio felicità:
 											</div>
 											<div class="col-1 col-12-xsmall">
@@ -114,7 +111,6 @@
 											<div class="col-1 col-12-xsmall">
 												<input type="text"name="demo-max-happy" class="happy" id="max_happy" value="" placeholder="a"/>
 											</div>
-
 											<div>
 											PIL pro capite:
 											</div>
@@ -133,7 +129,7 @@
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" name="demo-max-life"class="pil" id="max_life" value="" placeholder="a"/>
-											</div> </p>
+											</div>
 
 											<div class="col-12">
 												<ul class="actions">
@@ -246,12 +242,12 @@
 												<input type="text" class="freedom" name="demo-generosity" id="new_generosity" value="" placeholder="" required />
 											</div>
 
-											<div>
+											<!-- <div>
 											Dystopia*:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" name="demo-dysto" id="new_dysto" value="" placeholder="" required />
-											</div>
+											</div> -->
 
 											<div>
 											Corruzione*:
@@ -377,12 +373,12 @@
 												<input type="text" class="freedom" id="mod_generosity" value="" placeholder="" required />
 											</div>
 
-											<div>
+											<!--<div>
 											Dystopia:
 											</div>
 											<div class="col-1 col-12-xsmall">
 												<input type="text" class="freedom" id="mod_dysto" value="" placeholder="" required />
-											</div>
+											</div> -->
 
 											<div>
 											Corruzione:
