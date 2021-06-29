@@ -16,8 +16,7 @@ def insertCountry(country):
                     "Healthy_life_expectancy": country.healty_life_ex,
                     "Freedom_to_make_life_choices": country.freedom_choices,
                     "Generosity": country.generosity,
-                    "Perceptions_of_corruption": country.percetions_corruption,
-                    "Ladder_score_in_Dystopia": country.ladder_dystopia})
+                    "Perceptions_of_corruption": country.percetions_corruption})
 
 
 # update one country by name
@@ -34,8 +33,7 @@ def updateCountry(name, country2):
                  "Healthy_life_expectancy": country2.healty_life_ex,
                  "Freedom_to_make_life_choices": country2.freedom_choices,
                  "Generosity": country2.generosity,
-                 "Perceptions_of_corruption": country2.percetions_corruption,
-                 "Ladder_score_in_Dystopia": country2.ladder_dystopia}}
+                 "Perceptions_of_corruption": country2.percetions_corruption}}
     col.update(myquery, newvalues)
 
 

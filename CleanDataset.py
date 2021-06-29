@@ -12,11 +12,10 @@ def delete_null_item():
         writer.writerow(["Country_name", "Regional_indicator", "Ladder_score", "Standard_error_of_ladder_score",
                          "upperwhisker", "lowerwhisker", "Logged_GDP_per_capita", "Social_support",
                          "Healthy_life_expectancy", "Freedom_to_make_life_choices", "Generosity",
-                         "Perceptions_of_corruption", "Ladder_score_in_Dystopia"])
+                         "Perceptions_of_corruption"])
 
         for i in range(0, len(happiness)):
             try:
-
                 writer.writerow(
                     [happiness["Country_name"][i], happiness["Regional_indicator"][i],
                      happiness["Ladder_score"][i],
@@ -25,8 +24,7 @@ def delete_null_item():
                      happiness["lowerwhisker"][i], happiness["Logged_GDP_per_capita"][i],
                      happiness["Social_support"][i], happiness["Healthy_life_expectancy"][i],
                      happiness["Freedom_to_make_life_choices"][i],
-                     happiness["Generosity"][i], happiness["Perceptions_of_corruption"][i],
-                     happiness["Ladder_score_in_Dystopia"][i]
+                     happiness["Generosity"][i], happiness["Perceptions_of_corruption"][i]
                      ])
             except:
                 print("Valore non inserito numero", i)

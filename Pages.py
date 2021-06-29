@@ -126,13 +126,11 @@ def insert_country():
     freedom = request.form['demo-freedom']
     generosity = request.form['demo-generosity']
     corr = request.form['demo-corr']
-    disto = request.form['demo-dysto']
 
     object = {"_id": "", "Country_name": name, "Regional_indicator": region, "Ladder_score": score,
               "Standard_error_of_ladder_score": dev, "upperwhisker": upper, "lowerwhisker": lower,
               "Logged_GDP_per_capita": pil, "Social_support": social, "Healthy_life_expectancy": life,
-              "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr,
-              "Ladder_score_in_Dystopia": disto}
+              "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr}
 
     happy = Happiness.Happiness(object)
     if Happiness.checkFormato(happy):
@@ -158,12 +156,12 @@ def update_country():
     freedom = request.form['demo-freedom']
     generosity = request.form['demo-generosity']
     corr = request.form['demo-corr']
-    disto = request.form['demo-dysto']
+
     object = {"_id": "", "Country_name": name, "Regional_indicator": region, "Ladder_score": score,
               "Standard_error_of_ladder_score": dev, "upperwhisker": upper, "lowerwhisker": lower,
               "Logged_GDP_per_capita": pil, "Social_support": social, "Healthy_life_expectancy": life,
-              "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr,
-              "Ladder_score_in_Dystopia": disto}
+              "Freedom_to_make_life_choices": freedom, "Generosity": generosity, "Perceptions_of_corruption": corr}
+
     if name == "":
         return render_template("test_query.html", response="Errore. Nessun paese inserito", list_country=getResult())
     else:
@@ -198,8 +196,6 @@ def update_country():
                 new.freedom_choices = value[0].freedom_choices
             if new.generosity == "":
                 new.generosity = value[0].generosity
-            if new.ladder_dystopia == "":
-                new.ladder_dystopia = value[0].ladder_dystopia
             if new.percetions_corruption == "":
                 new.percetions_corruption = value[0].percetions_corruption
             Query.updateCountry(new_name, new)
@@ -213,7 +209,8 @@ def delete_query():
     if request.method == 'POST':
         name = request.form['demo-name']
         if name == "":
-            return render_template("test_query.html", response="Nessun paese rilevato da eliminare", list_country=getResult())
+            return render_template("test_query.html", response="Nessun paese rilevato da eliminare",
+                                   list_country=getResult())
         else:
             result = Query.findCountry(name)
             value = None
