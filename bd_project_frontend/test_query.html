@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/query.css') }}" />
-		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+		<noscript><link rel="stylesheet" href="bd_project_frontend/assets/css/noscript.css" /></noscript>
 	</head>
 
 	<body class="is-preload">
@@ -17,7 +17,7 @@
 				<nav>
 					<ul>
 						<li><a href=index>Home</a></li>
-						<li><a href=test_query  class="active">Query Page</a></li>
+						<li><a href="test_query"  class="active">Query Page</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -47,7 +47,7 @@
 													<th onclick="sortTable(9)">Freedom</th>
 													<th onclick="sortTable(10)">Generosity</th>
 													<th onclick="sortTable(11)">Corruzione</th>
-													<!-- <th onclick="sortTable(12)">Dystopia</th> -->
+
 												</tr>
 											</thead>
 											<tbody>
@@ -65,7 +65,7 @@
         									<td>{{ row.freedom_choices }}</td>
         									<td>{{ row.generosity }}</td>
         									<td>{{ row.percetions_corruption }}</td>
-        									<!--<td>{{ row.ladder_dystopia }}</td> -->
+
     										</tr>
     										{% endfor %}
 											</tbody></table>
@@ -242,12 +242,6 @@
 												<input type="text" class="freedom" name="demo-generosity" id="new_generosity" value="" placeholder="" required />
 											</div>
 
-											<!-- <div>
-											Dystopia*:
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" name="demo-dysto" id="new_dysto" value="" placeholder="" required />
-											</div> -->
 
 											<div>
 											Corruzione*:
@@ -264,13 +258,13 @@
 													<li><input type="submit" value="Aggiungi" class="primary" onclick="return insert_alert();" /></li>
 													<!-- <li><input type="reset" value="Annulla" /></li> -->
 												</ul>
-                                                <script>
+                                                <!-- <script>
                                                     function insert_alert() {
                                                     var result = ["{{response}}"];
                                                     alert(result);
                                                     return true;
                                                     }
-                                                </script>
+                                                </script> -->
 											</div>
 									</form>
 		</div>
@@ -315,40 +309,40 @@
 											Punteggio felicità:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_score" value="" placeholder="" required />
+												<input type="text" class="happy" id="mod_happiness_score" value="" placeholder=""  />
 											</div> </p>
 
 											<p> <div>
 												Deviazione standard:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_dev_standard" value="" placeholder="" required />
+												<input type="text" class="happy" id="mod_happiness_dev_standard" value="" placeholder=""  />
 											</div>
 											<div>
 												Baffo superiore:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_upper" value="" placeholder="" required />
+												<input type="text" class="happy" id="mod_happiness_upper" value="" placeholder=""  />
 												</div>
 											<div>
 												Baffo inferiore:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="happy" id="mod_happiness_lower" value="" placeholder="" required />
+												<input type="text" class="happy" id="mod_happiness_lower" value="" placeholder=""  />
 											</div> </p>
 
 											<p> <div>
 											PIL pro capite:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="pil" id="mod_pil" value="" placeholder="" required />
+												<input type="text" class="pil" id="mod_pil" value="" placeholder="" />
 											</div>
 
 											<div>
 											Supporto sociale:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="social_sup" id="mod_social_sup" value="" placeholder="" required />
+												<input type="text" class="social_sup" id="mod_social_sup" value="" placeholder=""  />
 											</div>
 
 											<div>
@@ -356,35 +350,29 @@
 											</div>
 
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="life" id="mod_life" value="" placeholder="" required />
+												<input type="text" class="life" id="mod_life" value="" placeholder=""  />
 											</div>
 
 											<div>
 											Libertà percepita:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_freedom" value="" placeholder="" required />
+												<input type="text" class="freedom" id="mod_freedom" value="" placeholder=""  />
 											</div>
 
 											<div>
 											Generosità:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_generosity" value="" placeholder="" required />
+												<input type="text" class="freedom" id="mod_generosity" value="" placeholder=""  />
 											</div>
 
-											<!--<div>
-											Dystopia:
-											</div>
-											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_dysto" value="" placeholder="" required />
-											</div> -->
 
 											<div>
 											Corruzione:
 											</div>
 											<div class="col-1 col-12-xsmall">
-												<input type="text" class="freedom" id="mod_corr" value="" placeholder="" required />
+												<input type="text" class="freedom" id="mod_corr" value="" placeholder=""  />
 											</div> </p>
 
 										<div class="col-12">
@@ -392,13 +380,13 @@
 													<li><input type="submit" value="Modifica" class="primary" onclick="return modify_alert();" /></li>
 
 												</ul>
-                                                <script>
+                                                <!-- <script>
                                                     function modify_alert() {
                                                     var result = ["{{response}}"];
                                                     alert(result);
                                                     return true;
                                                     }
-                                                </script>
+                                                </script> -->
 											</div>
 										</div>
 									</form>
@@ -416,13 +404,13 @@
 											</div> </p> </div>
 
 			<button class="query_button" onclick="return delete_alert();">Elimina</button>
-                                                <script>
+                                          <!--       <script>
                                                     function delete_alert() {
                                                     var result = ["{{response}}"];
                                                     alert(result);
                                                     return true;
                                                     }
-                                                </script>
+                                                </script> -->
 			</form>
 
 		</div>
